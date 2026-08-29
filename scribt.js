@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      e.stopPropagation();
 
       totalButton.textContent = "جاري إرسال الطلب...";
       totalButton.disabled = true;
@@ -123,4 +124,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-  
