@@ -1,0 +1,87 @@
+/**
+ * SAC — Google Apps Script Backend
+ * ---------------------------------
+ * Receives order submissions from script.js (POST request) and appends
+ * them as a new row in a Google Sheet.
+ *
+ * SETUP:
+ * 1. Go to https://sheets.google.com and create a new spreadsheet
+ *    (e.g. "Sac - Orders").
+ * 2. In that spreadsheet, go to Extensions > Apps Script.
+ * 3. Delete any starter code and paste this entire file.
+ * 4. Click "Deploy" > "New deployment".
+ *    - Type: "Web app"
+ *    - Description: "Sac Orders Endpoint"
+ *    - Execute as: "Me"
+ *    - Who has access: "Anyone"
+ * 5. Click "Deploy", authorize the permissions requested.
+ * 6. Copy the "Web app URL" you receive.
+ * 7. Paste that URL into script.js as the value of GOOGLE_SCRIPT_URL.
+ */
+
+const SHEET_NAME = "Orders";
+
+function doPost(e) {
+  try {
+    const sheet = getOrCreateSheet();
+    const data = JSON.parse(e.postData.contents);
+
+    sheet.appendRow([
+      data.date || new Date().toISOString(),
+      data.orderId || "",
+      data.customerName || "",
+      data.phone || "",
+      data.wilaya || "",
+      data.commune || "",
+      data.address || "",
+      data.deliveryMethod || "",
+      data.quantity || "",
+      data.productPrice || "",
+      data.productsTotal || "",
+      data.deliveryPrice || "",
+      data.totalPrice || ""
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success", orderId: data.orderId }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "ok", message: "Sac orders endpoint is live." }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getOrCreateSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(SHEET_NAME);
+
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow([
+      "التاريخ",
+      "رقم الطلب",
+      "اسم الزبون",
+      "الهاتف",
+      "الولاية",
+      "البلدية",
+      "العنوان",
+      "طريقة التوصيل",
+      "الكمية",
+      "سعر المنتج",
+      "مجموع المنتجات",
+      "سعر التوصيل",
+      "المجموع الكلي"
+    ]);
+    sheet.setFrozenRows(1);
+  }
+
+  return sheet;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sac — كل نهارك في صاك واحد</title>
+  <meta name="description" content="صاك أنيق وعملي للجامعة والثانوي، يسع كراريسك وماكياجك وشارجارك وكل صوالحك.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SAC ✨</div>
+    <a class="mini-cta" href="#order">اطلبي الآن</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="badge">عرض خاص</span>
+        <h1>كل نهارك<br><span>في صاك واحد 🎀</span></h1>
+        <p class="lead">جامعة؟ ثانوي؟ 🤍</p>
+        <p>كراريسك، ماكياجك، شارجارك وكل صوالحك…<br>
+        خليهم كامل مرتبين معاك وين ما تروحي ✨</p>
+        <div class="price-row">
+          <div>
+            <small>السعر</small>
+            <strong>1650 دج</strong>
+          </div>
+          <span class="delivery">🚚 الدفع عند الاستلام</span>
+        </div>
+        <a class="main-cta" href="#order">اطلبي صاكك الآن <span>←</span></a>
+      </div>
+      <div class="hero-image">
+        <img src="product-4.jpg" alt="صاك أسود أنيق">
+      </div>
+    </section>
+
+    <section class="gallery">
+      <h2>شوفيه كيفاش يجي معاك 🤎🖤</h2>
+      <div class="grid">
+        <img src="product-1.png" alt="الصاك مع الحقيبة الصغيرة">
+        <img src="product-2.png" alt="الصاك من الخلف">
+        <img src="product-3.png" alt="الصاك من الخلف">
+        <img src="product-4.jpg" alt="الصاك من الأمام">
+      </div>
+    </section>
+
+    <section class="benefits">
+      <h2>صاكك لي يرافقك طول النهار 🤎</h2>
+      <div class="cards">
+        <article><b>🎒 عملي</b><p>مساحة مناسبة لصوالحك اليومية.</p></article>
+        <article><b>✨ أنيق</b><p>ستايل بسيط يليق بالجامعة والثانوي والخروجات.</p></article>
+        <article><b>🤍 مرتب</b><p>خلي حاجاتك كامل معاك بلا ما تتقلقي.</p></article>
+      </div>
+    </section>
+
+    <section class="order" id="order">
+      <div class="order-box">
+        <div>
+          <span class="badge">الطلب ساهل</span>
+          <h2>اطلبي صاكك الآن</h2>
+          <p>عمّري معلوماتك، ومن بعد نتواصلو معاك لتأكيد الطلب.</p>
+          <div class="order-price">1650 دج</div>
+        </div>
+
+        <form id="orderForm">
+          <label>الاسم الكامل
+            <input name="name" type="text" placeholder="مثال: سارة محمد" required>
+          </label>
+          <label>رقم الهاتف
+            <input name="phone" type="tel" inputmode="tel" placeholder="05 / 06 / 07 ..." required>
+          </label>
+          <label>الولاية
+            <select name="wilaya" required>
+              <option value="">اختاري الولاية</option>
+              <option>أدرار</option><option>الشلف</option><option>الأغواط</option><option>أم البواقي</option>
+              <option>باتنة</option><option>بجاية</option><option>بسكرة</option><option>بشار</option>
+              <option>البليدة</option><option>البويرة</option><option>تمنراست</option><option>تبسة</option>
+              <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option><option>الجزائر</option>
+              <option>الجلفة</option><option>جيجل</option><option>سطيف</option><option>سعيدة</option>
+              <option>سكيكدة</option><option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
+              <option>قسنطينة</option><option>المدية</option><option>مستغانم</option><option>المسيلة</option>
+              <option>معسكر</option><option>ورقلة</option><option>وهران</option><option>البيض</option>
+              <option>إليزي</option><option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
+              <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option><option>خنشلة</option>
+              <option>سوق أهراس</option><option>تيبازة</option><option>ميلة</option><option>عين الدفلى</option>
+              <option>النعامة</option><option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
+              <option>تيميمون</option><option>برج باجي مختار</option><option>أولاد جلال</option><option>بني عباس</option>
+              <option>إن صالح</option><option>إن قزام</option><option>تقرت</option><option>جانت</option>
+              <option>المغير</option><option>المنيعة</option>
+            </select>
+          </label>
+          <label>العنوان
+            <textarea name="address" rows="3" placeholder="البلدية / الحي / العنوان بالتفصيل" required></textarea>
+          </label>
+          <button type="submit">تأكيد الطلب — 1650 دج</button>
+          <p class="form-note">🔒 معلوماتك تستعمل فقط لتأكيد الطلب.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 SAC — كل نهارك في صاك واحد 🎀</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
