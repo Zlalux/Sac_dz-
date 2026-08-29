@@ -7,7 +7,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     body { background-color: #f7f4f0; color: #2d2d2d; line-height: 1.6; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); sticky: top; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
     .logo { font-weight: bold; font-size: 1.2rem; color: #1a1a1a; }
     .btn-nav { background: #1a1a1a; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-weight: bold; }
     .hero { text-align: center; padding: 40px 20px; }
@@ -30,7 +30,7 @@
 
   <header>
     <div class="logo">✨ SAC</div>
-    <a href="#order" class="btn-nav">اطلي الآن</a>
+    <a href="#order" class="btn-nav">اطلبي الآن</a>
   </header>
 
   <main>
@@ -41,7 +41,7 @@
     <section class="gallery">
       <h2>شوفيه كيفاش يجي معاك 🤎🖤</h2>
       <div class="grid">
-        <img src="product-1.jpg" alt="الحقيبة الصغبرة">
+        <img src="product-1.jpg" alt="الحقيبة الصغيرة">
         <img src="product-2.jpg" alt="الصاك من الخلف">
         <img src="product-3.jpg" alt="الصاك من الخلف">
         <img src="product-4.jpg" alt="الصاك من الأمام">
@@ -59,7 +59,7 @@
 
     <section class="order-section" id="order">
       <div class="order-box">
-        <form>
+        <form id="orderForm">
           <label>الاسم الكامل
             <input name="name" type="text" placeholder="مثال: سارة محمد" required>
           </label>
@@ -154,5 +154,5 @@
 
   <script src="scribt.js"></script>
 </body>
-                               </html>
+  </html>
   
