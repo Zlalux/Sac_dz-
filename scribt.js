@@ -1,75 +1,84 @@
 const wilayaPrices = {
-  "أدرار": 1000,
-  "الشلف": 700,
-  "الأغواط": 650,
-  "أم البواقي": 900,
-  "باتنة": 800,
-  "بجاية": 800,
-  "بسكرة": 900,
-  "بشار": 1300,
-  "البليدة": 500,
-  "البويرة": 600,
-  "تمنراست": 1300,
-  "تبسة": 1000,
-  "تلمسان": 800,
-  "تيارت": 400,
-  "تيزي وزو": 700,
-  "الجزائر": 500,
-  "الجلفة": 900,
-  "جيجل": 800,
-  "سطيف": 800,
-  "سعيدة": 800,
-  "سكيكدة": 800,
-  "سيدي بلعباس": 700,
-  "عنابة": 800,
-  "قالمة": 900,
-  "قسنطينة": 900,
-  "المدية": 600,
-  "مستغانم": 700,
-  "المسيلة": 800,
-  "معسكر": 700,
-  "ورقلة": 900,
-  "وهران": 700,
-  "البيض": 800,
-  "إليزي": 1300,
-  "برج بوعريريج": 800,
-  "بومرداس": 700,
-  "الطارف": 900,
-  "تندوف": 1300,
-  "تسمسيلت": 500,
-  "الوادي": 900,
-  "خنشلة": 900,
-  "سوق أهراس": 900,
-  "تيبازة": 700,
-  "ميلة": 800,
-  "عين الدفلى": 600,
-  "النعامة": 800,
-  "عين تموشنت": 700,
-  "غرداية": 800,
-  "غليزان": 600,
-  "تيميمون": 1300,
-  "أولاد جلال": 900,
-  "إن صالح": 1300,
-  "إن قزام": 1300,
-  "تقرت": 900,
-  "المغير": 900,
-  "المنيعة": 900
+  "أدرار": { home: 1000, desk: 600 },
+  "الشلف": { home: 700, desk: 400 },
+  "الأغواط": { home: 650, desk: 500 },
+  "أم البواقي": { home: 900, desk: 400 },
+  "باتنة": { home: 800, desk: 400 },
+  "بجاية": { home: 800, desk: 400 },
+  "بسكرة": { home: 900, desk: 500 },
+  "بشار": { home: 1300, desk: 600 },
+  "البليدة": { home: 500, desk: 350 },
+  "البويرة": { home: 600, desk: 400 },
+  "تمنراست": { home: 1300, desk: 600 },
+  "تبسة": { home: 1000, desk: 400 },
+  "تلمسان": { home: 800, desk: 400 },
+  "تيارت": { home: 400, desk: 400 },
+  "تيزي وزو": { home: 700, desk: 400 },
+  "الجزائر": { home: 500, desk: 400 },
+  "الجلفة": { home: 900, desk: 500 },
+  "جيجل": { home: 800, desk: 400 },
+  "سطيف": { home: 800, desk: 400 },
+  "سعيدة": { home: 800, desk: 400 },
+  "سكيكدة": { home: 800, desk: 400 },
+  "سيدي بلعباس": { home: 700, desk: 400 },
+  "عنابة": { home: 800, desk: 400 },
+  "قالمة": { home: 900, desk: 400 },
+  "قسنطينة": { home: 900, desk: 400 },
+  "المدية": { home: 600, desk: 400 },
+  "مستغانم": { home: 700, desk: 400 },
+  "المسيلة": { home: 800, desk: 500 },
+  "معسكر": { home: 700, desk: 400 },
+  "ورقلة": { home: 900, desk: 500 },
+  "وهران": { home: 700, desk: 400 },
+  "البيض": { home: 800, desk: 500 },
+  "إليزي": { home: 1300, desk: 600 },
+  "برج بوعريريج": { home: 800, desk: 400 },
+  "بومرداس": { home: 700, desk: 400 },
+  "الطارف": { home: 900, desk: 400 },
+  "تندوف": { home: 1300, desk: 600 },
+  "تسمسيلت": { home: 500, desk: 300 },
+  "الوادي": { home: 900, desk: 500 },
+  "خنشلة": { home: 900, desk: 500 },
+  "سوق أهراس": { home: 900, desk: 500 },
+  "تيبازة": { home: 700, desk: 400 },
+  "ميلة": { home: 800, desk: 400 },
+  "عين الدفلى": { home: 600, desk: 400 },
+  "النعامة": { home: 800, desk: 500 },
+  "عين تموشنت": { home: 700, desk: 400 },
+  "غرداية": { home: 800, desk: 500 },
+  "غليزان": { home: 600, desk: 400 },
+  "تيميمون": { home: 1300, desk: 600 },
+  "أولاد جلال": { home: 900, desk: 500 },
+  "إن صالح": { home: 1300, desk: 600 },
+  "إن قزام": { home: 1300, desk: 1300 },
+  "تقرت": { home: 900, desk: 500 },
+  "المغير": { home: 900, desk: 900 },
+  "المنيعة": { home: 900, desk: 500 }
 };
 
-const wilayaSelect = document.querySelector('select');
-const totalButton = document.querySelector('button[type="submit"]');
-const basePrice = 1650;
+document.addEventListener("DOMContentLoaded", function () {
+  const wilayaSelect = document.querySelector('select[name="wilaya"]');
+  const deliveryTypeSelect = document.getElementById('delivery-type');
+  const totalButton = document.querySelector('button[type="submit"]');
+  const basePrice = 1650;
 
-if (wilayaSelect && totalButton) {
-  wilayaSelect.addEventListener('change', function() {
-    const selectedWilaya = this.value;
-    const shipping = wilayaPrices[selectedWilaya] || 0;
-    const total = basePrice + shipping;
-    
-    if (shipping > 0) {
-      totalButton.textContent = `تأكيد الطلب — ${total} دج (شامل التوصيل ${shipping} دج)`;
+  function updatePrice() {
+    if (!wilayaSelect || !totalButton) return;
+
+    const selectedWilaya = wilayaSelect.value.trim();
+    const deliveryType = deliveryTypeSelect ? deliveryTypeSelect.value : 'home';
+
+    if (wilayaPrices[selectedWilaya]) {
+      const shipping = wilayaPrices[selectedWilaya][deliveryType] || 0;
+      const total = basePrice + shipping;
+      const typeText = deliveryType === 'home' ? 'للمنزل' : 'للمكتب';
+      totalButton.textContent = `تأكيد الطلب — ${total} دج (توصيل ${typeText}: ${shipping} دج)`;
     } else {
       totalButton.textContent = `تأكيد الطلب — ${basePrice} دج`;
     }
-  });
-}
+  }
+
+  if (wilayaSelect) wilayaSelect.addEventListener('change', updatePrice);
+  if (deliveryTypeSelect) deliveryTypeSelect.addEventListener('change', updatePrice);
+});
+            
