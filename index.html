@@ -3,42 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sac — كل نهارك في صاك واحد</title>
-  <meta name="description" content="صاك أنيق وعملي للجامعة والثانوي، يسع كراريسك وماكياجك وشارجارك وكل صوالحك.">
-  <link rel="stylesheet" href="style.css">
+  <title>SAC – صاك واحد لكل نهارك</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: #f7f4f0; color: #2d2d2d; line-height: 1.6; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); sticky: top; }
+    .logo { font-weight: bold; font-size: 1.2rem; color: #1a1a1a; }
+    .btn-nav { background: #1a1a1a; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-weight: bold; }
+    .hero { text-align: center; padding: 40px 20px; }
+    .price { font-size: 2.2rem; font-weight: 800; color: #1a1a1a; margin: 15px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; padding: 10px 20px; }
+    .grid img { width: 100%; border-radius: 8px; object-fit: cover; }
+    .benefits { padding: 30px 20px; background: #fff; margin: 20px 0; }
+    .cards { display: grid; gap: 15px; margin-top: 15px; }
+    .card { background: #f7f4f0; padding: 15px; border-radius: 8px; font-size: 0.95rem; }
+    .order-section { padding: 30px 20px; }
+    .order-box { background: #fff; padding: 20px; border-radius: 12px; max-width: 500px; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    label { display: block; margin-bottom: 15px; font-weight: 600; font-size: 0.9rem; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; font-size: 1rem; }
+    button[type="submit"] { width: 100%; padding: 15px; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+    .form-note { text-align: center; font-size: 0.8rem; color: #666; margin-top: 10px; }
+    footer { text-align: center; padding: 20px; font-size: 0.85rem; color: #777; }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">SAC ✨</div>
-    <a class="mini-cta" href="#order">اطلبي الآن</a>
+
+  <header>
+    <div class="logo">✨ SAC</div>
+    <a href="#order" class="btn-nav">اطلي الآن</a>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-copy">
-        <span class="badge">عرض خاص</span>
-        <h1>كل نهارك<br><span>في صاك واحد 🎀</span></h1>
-        <p class="lead">جامعة؟ ثانوي؟ 🤍</p>
-        <p>كراريسك، ماكياجك، شارجارك وكل صوالحك…<br>
-        خليهم كامل مرتبين معاك وين ما تروحي ✨</p>
-        <div class="price-row">
-          <div>
-            <small>السعر</small>
-            <strong>1650 دج</strong>
-          </div>
-          <span class="delivery">🚚 الدفع عند الاستلام</span>
-        </div>
-        <a class="main-cta" href="#order">اطلبي صاكك الآن <span>←</span></a>
-      </div>
-      <div class="hero-image">
-        <img src="product-4.jpg" alt="صاك أسود أنيق">
-      </div>
+      <div class="price">1650 دج</div>
     </section>
 
     <section class="gallery">
       <h2>شوفيه كيفاش يجي معاك 🤎🖤</h2>
       <div class="grid">
-        <img src="product-1.jpg" alt="الصاك مع الحقيبة الصغيرة">
+        <img src="product-1.jpg" alt="الحقيبة الصغبرة">
         <img src="product-2.jpg" alt="الصاك من الخلف">
         <img src="product-3.jpg" alt="الصاك من الخلف">
         <img src="product-4.jpg" alt="الصاك من الأمام">
@@ -48,58 +51,98 @@
     <section class="benefits">
       <h2>صاكك لي يرافقك طول النهار 🤎</h2>
       <div class="cards">
-        <article><b>🎒 عملي</b><p>مساحة مناسبة لصوالحك اليومية.</p></article>
-        <article><b>✨ أنيق</b><p>ستايل بسيط يليق بالجامعة والثانوي والخروجات.</p></article>
-        <article><b>🤍 مرتب</b><p>خلي حاجاتك كامل معاك بلا ما تتقلقي.</p></article>
+        <article class="card"><b>🎒 عملي:</b> مساحة مناسبة لصوالحك اليومية</article>
+        <article class="card"><b>✨ أنيق:</b> يخرج مع الجامعة والثانوي والخروجات</article>
+        <article class="card"><b>🤍 مرتب:</b> يتسف كامل معاك بلا ما تتقلقي</article>
       </div>
     </section>
 
-    <section class="order" id="order">
+    <section class="order-section" id="order">
       <div class="order-box">
-        <div>
-          <span class="badge">الطلب ساهل</span>
-          <h2>اطلبي صاكك الآن</h2>
-          <p>عمّري معلوماتك، ومن بعد نتواصلو معاك لتأكيد الطلب.</p>
-          <div class="order-price">1650 دج</div>
-        </div>
-
-        <form id="orderForm">
+        <form>
           <label>الاسم الكامل
             <input name="name" type="text" placeholder="مثال: سارة محمد" required>
           </label>
+          
           <label>رقم الهاتف
             <input name="phone" type="tel" inputmode="tel" placeholder="05 / 06 / 07 ..." required>
           </label>
+
           <label>الولاية
             <select name="wilaya" required>
               <option value="">اختاري الولاية</option>
-              <option>أدرار</option><option>الشلف</option><option>الأغواط</option><option>أم البواقي</option>
-              <option>باتنة</option><option>بجاية</option><option>بسكرة</option><option>بشار</option>
-              <option>البليدة</option><option>البويرة</option><option>تمنراست</option><option>تبسة</option>
-              <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option><option>الجزائر</option>
-              <option>الجلفة</option><option>جيجل</option><option>سطيف</option><option>سعيدة</option>
-              <option>سكيكدة</option><option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
-              <option>قسنطينة</option><option>المدية</option><option>مستغانم</option><option>المسيلة</option>
-              <option>معسكر</option><option>ورقلة</option><option>وهران</option><option>البيض</option>
-              <option>إليزي</option><option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
-              <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option><option>خنشلة</option>
-              <option>سوق أهراس</option><option>تيبازة</option><option>ميلة</option><option>عين الدفلى</option>
-              <option>النعامة</option><option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
-              <option>تيميمون</option><option>برج باجي مختار</option><option>أولاد جلال</option><option>بني عباس</option>
-              <option>إن صالح</option><option>إن قزام</option><option>تقرت</option><option>جانت</option>
-              <option>المغير</option><option>المنيعة</option>
+              <option>أدرار</option>
+              <option>الشلف</option>
+              <option>الأغواط</option>
+              <option>أم البواقي</option>
+              <option>باتنة</option>
+              <option>بجاية</option>
+              <option>بسكرة</option>
+              <option>بشار</option>
+              <option>البليدة</option>
+              <option>البويرة</option>
+              <option>تمنراست</option>
+              <option>تبسة</option>
+              <option>تلمسان</option>
+              <option>تيارت</option>
+              <option>تيزي وزو</option>
+              <option>الجزائر</option>
+              <option>الجلفة</option>
+              <option>جيجل</option>
+              <option>سطيف</option>
+              <option>سعيدة</option>
+              <option>سكيكدة</option>
+              <option>سيدي بلعباس</option>
+              <option>عنابة</option>
+              <option>قالمة</option>
+              <option>قسنطينة</option>
+              <option>المدية</option>
+              <option>مستغانم</option>
+              <option>المسيلة</option>
+              <option>معسكر</option>
+              <option>ورقلة</option>
+              <option>وهران</option>
+              <option>البيض</option>
+              <option>إليزي</option>
+              <option>برج بوعريريج</option>
+              <option>بومرداس</option>
+              <option>الطارف</option>
+              <option>تندوف</option>
+              <option>تسمسيلت</option>
+              <option>الوادي</option>
+              <option>خنشلة</option>
+              <option>سوق أهراس</option>
+              <option>تيبازة</option>
+              <option>ميلة</option>
+              <option>عين الدفلى</option>
+              <option>النعامة</option>
+              <option>عين تموشنت</option>
+              <option>غرداية</option>
+              <option>غليزان</option>
+              <option>تيميمون</option>
+              <option>برج باجي مختار</option>
+              <option>أولاد جلال</option>
+              <option>بني عباس</option>
+              <option>إن صالح</option>
+              <option>إن قزام</option>
+              <option>تقرت</option>
+              <option>جانت</option>
+              <option>المغير</option>
+              <option>المنيعة</option>
             </select>
           </label>
-          <label>مكان التوصيل
-     <select id="delivery-type" name="delivery_type">
-       <option value="home">توصيل إلى المنزل 🏠</option>
-       <option value="desk">توصيل إلى المكتب 🏢</option>
-     </select>
-   </label>
-93 <label>العنوان
 
-            <textarea name="address" rows="3" placeholder="البلدية / الحي / العنوان بالتفصيل" required></textarea>
+          <label>مكان التوصيل
+            <select id="delivery-type" name="delivery_type">
+              <option value="home">توصيل إلى المنزل 🏠</option>
+              <option value="desk">توصيل إلى المكتب 🏢</option>
+            </select>
           </label>
+
+          <label>العنوان
+            <textarea name="address" rows="3" placeholder="البلدية / الحي / العنوان بالتفصيل"></textarea>
+          </label>
+
           <button type="submit">تأكيد الطلب — 1650 دج</button>
           <p class="form-note">🔒 معلوماتك تستعمل فقط لتأكيد الطلب.</p>
         </form>
@@ -107,10 +150,9 @@
     </section>
   </main>
 
-  <footer>© 2026 SAC — كل نهارك في صاك واحد 🎀</footer>
+  <footer>© 2026 SAC – كل نهارك في صاك واحد 🎀</footer>
 
   <script src="scribt.js"></script>
-
-  
 </body>
-</html>
+                               </html>
+  
