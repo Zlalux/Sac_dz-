@@ -1,5 +1,6 @@
-// رقم الواتساب الخاص بكِ
-const PHONE_NUMBER = "213655465369";
+// بيانات بوت تليجرام الخاصة بكِ
+const TELEGRAM_BOT_TOKEN = "8984731117:AAF5CNVmSi8SBXXmXWPJR4TQ62RuML79qKo"; 
+const TELEGRAM_CHAT_ID = "7164007969"; 
 
 const wilayaPrices = {
   "أدرار": { home: 1000, desk: 600 },
@@ -66,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const basePrice = 1650;
 
-  // تحديث السعر في زر الإرسال
   function updatePrice() {
     if (!wilayaSelect || !totalButton) return;
 
@@ -86,10 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (wilayaSelect) wilayaSelect.addEventListener('change', updatePrice);
   if (deliveryTypeSelect) deliveryTypeSelect.addEventListener('change', updatePrice);
 
-  // إرسال الطلب عبر الواتساب والتوجه لصفحة شكراً
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      totalButton.textContent = "جاري إرسال الطلب...";
+      totalButton.disabled = true;
 
       const name = form.querySelector('input[name="name"]').value;
       const phone = form.querySelector('input[name="phone"]').value;
@@ -101,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const shipping = (wilayaPrices[wilaya] && wilayaPrices[wilaya][deliveryKey]) || 0;
       const total = basePrice + shipping;
 
-      const message = `طلب جديد - SAC 🛍️%0A%0A` +
+      const message = `🛍️ *طلب جديد - SAC*%0A%0A` +
         `👤 *الاسم:* ${name}%0A` +
         `📞 *الهاتف:* ${phone}%0A` +
         `📍 *الولاية:* ${wilaya}%0A` +
@@ -109,13 +111,16 @@ document.addEventListener("DOMContentLoaded", function () {
         `🏠 *العنوان:* ${address}%0A%0A` +
         `💰 *المجموع الإجمالي:* ${total} دج`;
 
-      const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${message}`;
+      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${message}&parse_mode=Markdown`;
 
-      // فتح محادثة الواتساب
-      window.open(whatsappUrl, '_blank');
-
-      // التوجيه إلى صفحة شكراً
-      window.location.href = "thankyou.html";
+      fetch(telegramUrl)
+        .then(() => {
+          window.location.href = "thankyou.html";
+        })
+        .catch(() => {
+          window.location.href = "thankyou.html";
+        });
     });
   }
 });
+  
