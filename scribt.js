@@ -1,3 +1,6 @@
+// رقم الواتساب الخاص بكِ
+const PHONE_NUMBER = "213655465369";
+
 const wilayaPrices = {
   "أدرار": { home: 1000, desk: 600 },
   "الشلف": { home: 700, desk: 400 },
@@ -60,8 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const wilayaSelect = document.querySelector('select[name="wilaya"]');
   const deliveryTypeSelect = document.getElementById('delivery-type');
   const totalButton = document.querySelector('button[type="submit"]');
+  const form = document.querySelector("form");
   const basePrice = 1650;
 
+  // تحديث السعر في زر الإرسال
   function updatePrice() {
     if (!wilayaSelect || !totalButton) return;
 
@@ -80,5 +85,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (wilayaSelect) wilayaSelect.addEventListener('change', updatePrice);
   if (deliveryTypeSelect) deliveryTypeSelect.addEventListener('change', updatePrice);
+
+  // إرسال الطلب عبر الواتساب والتوجه لصفحة شكراً
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = form.querySelector('input[name="name"]').value;
+      const phone = form.querySelector('input[name="phone"]').value;
+      const wilaya = wilayaSelect ? wilayaSelect.value.trim() : '';
+      const deliveryKey = deliveryTypeSelect ? deliveryTypeSelect.value : 'home';
+      const deliveryText = deliveryKey === 'desk' ? 'توصيل للمكتب 🏢' : 'توصيل للمنزل 🏠';
+      const address = form.querySelector('textarea[name="address"]').value || 'غير محدد';
+
+      const shipping = (wilayaPrices[wilaya] && wilayaPrices[wilaya][deliveryKey]) || 0;
+      const total = basePrice + shipping;
+
+      const message = `طلب جديد - SAC 🛍️%0A%0A` +
+        `👤 *الاسم:* ${name}%0A` +
+        `📞 *الهاتف:* ${phone}%0A` +
+        `📍 *الولاية:* ${wilaya}%0A` +
+        `🚚 *نوع التوصيل:* ${deliveryText}%0A` +
+        `🏠 *العنوان:* ${address}%0A%0A` +
+        `💰 *المجموع الإجمالي:* ${total} دج`;
+
+      const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${message}`;
+
+      // فتح محادثة الواتساب
+      window.open(whatsappUrl, '_blank');
+
+      // التوجيه إلى صفحة شكراً
+      window.location.href = "thankyou.html";
+    });
+  }
 });
-            
